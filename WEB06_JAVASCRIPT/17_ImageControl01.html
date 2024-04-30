@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17_ImageControl01.html</title>
+    <script>
+        function changeImg1() {
+            document.getElementById("img1").src = "images/3.jpg";
+        }
+
+        function changeImg3() {
+            document.getElementById("img1").src = "images/1.jpg";
+        }
+    </script>
+</head>
+
+<body>
+    <img src="images/1.jpg" id="img1" onMouseover="changeImg1()" onmouseout="changeImg3()">
+    <img src="images/2.jpg" id="img2">
+</body>
+
+</html>

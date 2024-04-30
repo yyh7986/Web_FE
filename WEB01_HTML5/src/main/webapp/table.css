@@ -1,0 +1,11 @@
+table{
+    border: 0 10px 0;
+    background-color: black;
+    color: rgb(red, green, blue);
+     width: 500;
+}
+
+tr{
+    background-color: white;
+    height: 80px;
+}

@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    display: flex;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    border: 10px solid black;
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+    box-sizing: border-box;
+}
+
+.box {
+    background: blue;
+    width: 100px;
+    height: 100px;
+    margin: 2px;
+}
+
+#container1 {
+    flex-wrap: wrap;
+}

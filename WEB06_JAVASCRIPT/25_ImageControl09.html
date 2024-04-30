@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25_ImageControl09.html</title>
+    <style>
+        img {
+            width: 400px;
+            height: 300px;
+        }
+
+        .view {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+
+        .imgs {
+            position: absolute;
+            width: 3200px;
+            height: 300px;
+            left: 0;
+            top: 0;
+            transition: 0.5s;
+        }
+
+        .lbutton {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            left: 0;
+            bottom: 0;
+            background-image: url(images/ico_movie_171115.png);
+            background-position: -60px -460px;
+        }
+
+        .rbutton {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            right: 0;
+            bottom: 0;
+            background-image: url(images/ico_movie_171115.png);
+            background-position: 0px -460px;
+        }
+    </style>
+    <script>
+        let num = 0;
+        let max = 7;
+
+        function preview() {
+            if (num == 0) {
+                num = max;
+            }
+            num--;
+            let dist = 400 * num * (-1);
+            document.getElementById("imgs").style.left = dist + "px";
+        }
+
+        function next() {
+            if (num == max) {
+                num = 0;
+            } else {
+                num++;
+            }
+            let dist = 400 * num * (-1);
+            document.getElementById("imgs").style.left = dist + "px";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="view">
+        <div class="imgs" id="imgs">
+            <img src="images/Koala.jpg"><img src="images/Chrysanthemum.jpg"><img src="images/Hydrangeas.jpg"><img
+                src="images/Jellyfish.jpg"><img src="images/Lighthouse.jpg"><img src="images/Penguins.jpg"><img
+                src="images/Tulips.jpg"><img src="images/Desert.jpg">
+        </div>
+        <div class="lbutton" onclick="preview()"></div>
+        <div class="rbutton" onclick="next()"></div>
+    </div>
+</body>
+
+</html>

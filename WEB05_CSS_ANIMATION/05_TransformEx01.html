@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #base {
+            position: relative;
+            width: 800px;
+            height: 400px;
+            border: 1px solid black;
+        }
+
+        #tire {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            top: 100px;
+            background: red;
+            border-radius: 50%;
+            line-height: 200px;
+            text-align: center;
+            font-size: 50px;
+            color: white;
+            font-weight: bold;
+        }
+
+        #tire:hover {
+            transition: 2s;
+            transform: translateX(500px) rotate(1000turn) scale(200%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="base">
+        <div id="tire">&gt;&lt;</div>
+    </div>
+</body>
+
+</html>

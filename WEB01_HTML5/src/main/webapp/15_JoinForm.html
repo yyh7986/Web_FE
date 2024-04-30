@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15_JoinForm.html</title>
+</head>
+<body>
+    <form>
+        <table width="700" align="center" bgcolor="blue" cellspacimg="1">
+            <tr bgcolor="white" height="30">
+                <th>아이디</th>
+                <td><input type="text" size="30" name="uid" /></td>
+            </tr>
+            <tr bgcolor="white" height="30">
+                <th>Password</th>
+                <td><input type="password" size="30" name="pwd" /></td>
+            </tr>
+            <tr bgcolor="white" height="30">
+                <th>전화번호</th>
+                <td>
+                    <select>
+                        <option>010</option>
+                        <option>02</option>
+                        <option>031</option>
+                        <option>032</option>
+                    </select>
+                    -
+                    <input type="text" size="10">
+                    -
+                    <input type="text" size="10">
+                </td>
+            </tr>
+            <tr bgcolor="white" height="30">
+                <th>성별</th>
+                <td>
+                    <input type="radio" name="gender">남자
+				    <input type="radio" name="gender">여자
+                </td>
+            </tr>
+            <tr bgcolor="white" height="30">
+                <th>알게된 경로</th>
+                <td>
+                    <input type="checkbox" />신문
+                    <input type="checkbox" />TV
+                    <input type="checkbox" />지인소개
+                    <input type="checkbox" />기타
+                </td>
+            </tr>
+            <tr bgcolor="white" height="30">
+                <th>직업</th>
+                <td>
+                    <select>
+                        <option>학생</option>
+                        <option>회사원</option>
+                        <option>공무원</option>
+                        <option>기타</option>
+                     </select>
+                </td>
+            </tr>
+            <tr bgcolor="white" height="30">
+                <th>생년월일</th>
+                <td>
+                    <input type="text" size="10">년
+                    <select>
+                        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+                    </select>월
+                    <select>
+                        <option>1</option>		<option>2</option>	   <option>3</option>
+                        <option>4</option>		<option>5</option>	   <option>6</option>
+                        <option>7</option>	   <option>8</option>	   <option>9</option>
+                        <option>10</option>	   <option>11</option>	   <option>12</option>
+                        <option>13</option>	   <option>14</option>	   <option>15</option>
+                        <option>16</option>	   <option>17</option>	   <option>18</option>
+                        <option>19</option>	   <option>20</option>	   <option>21</option>
+                        <option>22</option>	   <option>23</option>	   <option>24</option>
+                        <option>25</option>	   <option>26</option>	   <option>27</option>
+                        <option>28</option>	   <option>29</option>	   <option>30</option>
+                        <option>31</option>
+                    </select> 일
+                </td>
+            </tr>
+            <tr bgcolor="white" height="30">
+                <th>주소</th>
+                <td><input type="text" size="50" /></td>
+            </tr>
+
+            <tr bgcolor="white" height="30">
+                <th>인사말</th>
+                <td>
+                    <!-- 멀티라인 텍스입력 란 -->
+                    <textarea cols="50" rows="10" name="intro" >가나다라마바사</textarea>
+                </td>
+            </tr>
+
+            <tr bgcolor="white" height="30">
+                <td colspan="2" align="center">
+                    <input type="submit" value="회워가입" />
+                    <input type="reset" value="다시작성" />
+                </td>
+            </tr>
+
+            
+        </table>
+    </form>
+</body>
+</html>

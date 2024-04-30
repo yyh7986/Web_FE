@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    /* border: 1px solid red; */
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgb(223, 223, 223);
+    box-shadow: 3px 3px 3px grey;
+}
+
+.card:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 8px 8px 8px grey;
+}
+
+
+/* display: flex;
+flex-direction: column;
+justify-content: space-between; */

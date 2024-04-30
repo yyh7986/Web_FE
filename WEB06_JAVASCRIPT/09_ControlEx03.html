@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_ControlEx03.html</title>
+    <script>
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth() + 1;
+        let date1 = today.getDate();
+        let y = Number(prompt("년도를 입력하세요", year));
+        let m = Number(prompt("월을 입력하세요", month));
+        // let d = Number( prompt("일을 입력하세요", date1) );
+
+        let days = 365 * (y - 1);
+        for (let i = 1; i < y; i++) {
+            if ((i % 4 == 0) && (i % 100 != 0) || (i % 400 == 0)) {
+                days++;
+            }
+        }
+        let mdays = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if ((y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0)) {
+            mdays[2] = 29;
+        }
+        for (let i = 1; i <= m - 1; i++) {
+            days += mdays[i];
+        }
+        days += 1;
+        let weekday = days % 7;
+    </script>
+</head>
+
+<body>
+    <script>
+        document.write('<table width="700" border=1>');
+        document.write('<tr height:"80"><td>일</td><td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td>토</td></tr>')
+
+        document.write('<tr height:"80" align="right">');
+        for (let i = 1; i <= 31; i++) {
+            document.write('<td>' + i + '</td>');
+            if (i % 7 == 0) {
+                document.write('</tr>');
+                document.write('<tr height:"80" align="right">');
+            }
+        }
+        document.write('</tr>');
+
+
+        document.write('</table>');
+    </script>
+</body>
+
+</html>

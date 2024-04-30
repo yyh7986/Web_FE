@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>27_ImageControl11.html</title>
+    <style>
+      img {
+        width: 400px;
+        height: 300px;
+      }
+
+      .view {
+        position: relative;
+        width: 400px;
+        height: 300px;
+        overflow: hidden;
+        border: 1px solid black;
+      }
+
+      .imgs {
+        position: absolute;
+        width: 3200px;
+        height: 300px;
+        left: 0;
+        top: 0;
+        transition: 0.3s;
+      }
+
+      #remote {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        top: 0;
+        left: 0;
+      }
+
+      #remote div {
+        position: relative;
+        width: 25px;
+        height: 25px;
+        background: transparent;
+        border-radius: 50%;
+        border: 2px solid black;
+        text-align: center;
+        margin: 12px auto;
+        cursor: pointer;
+        color: red;
+      }
+
+      #remote div::selection {
+        display: none;
+      }
+    </style>
+    <script>
+      let state = false;
+      let num = 0;
+      let timer;
+
+      function start_stop() {
+        if (state == true) {
+          // ▶
+          document.getElementById("btn").innerText = "▶";
+          document.getElementById("btn").style.color = "black";
+
+          window.clearInterval(timer);
+
+          state = false;
+        } else {
+          document.getElementById("btn").innerText = "■";
+          document.getElementById("btn").style.color = "red";
+
+          timer = window.setInterval(function () {
+            num++;
+            if (num > 7) num = 0;
+            let dist = -400 * num;
+            document.getElementById("imgs").style.left = dist + "px";
+          }, 500);
+
+          state = true;
+        }
+      }
+
+      function changeView() {
+        num++;
+        if (num > 7) num = 0;
+        let dist = -400 * num;
+        document.getElementById("imgs").style.left = dist + "px";
+        state = true;
+      }
+    </script>
+  </head>
+
+  <body onload="start_stop()">
+    <div class="view">
+      <div class="imgs" id="imgs">
+        <img src="images/Koala.jpg" /><img src="images/Chrysanthemum.jpg" /><img
+          src="images/Hydrangeas.jpg"
+        /><img src="images/Jellyfish.jpg" /><img
+          src="images/Lighthouse.jpg"
+        /><img src="images/Penguins.jpg" /><img src="images/Tulips.jpg" /><img
+          src="images/Desert.jpg"
+        />
+      </div>
+      <div id="remote">
+        <div id="btn" onclick="start_stop()">■</div>
+      </div>
+    </div>
+  </body>
+</html>

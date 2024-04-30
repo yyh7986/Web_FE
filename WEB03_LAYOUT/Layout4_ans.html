@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .base {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            border: 1px dotted black;
+        }
+
+        .title {
+            position: relative;
+            width: 400px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 0 auto;
+            font-size: 200%;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+        }
+
+        .text {
+            position: relative;
+            width: 400px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        .view {
+            position: relative;
+            width: 1100px;
+            height: 200px;
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+
+        /* 첫번째 방법 */
+        /* .circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            float: left;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .circle img {
+            height: 200px;
+        }
+        
+        .temp {
+            position: relative;
+            width: 100px;
+            height: 200px;
+            border: 1px solid green;
+            float: left;
+            box-sizing: border-box;
+        } */
+
+        /* 두번째 방법 */
+        .circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            float: left;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 100px;
+        }
+
+        .circle:last-child {
+            margin-right: 0;
+        }
+
+        .circle img {
+            height: 200px;
+        }
+
+        .rect {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin-right: 100px;
+            border: 1px solid blue;
+            box-sizing: border-box;
+        }
+
+        .rect:last-child {
+            margin-right: 0;
+        }
+
+        .rect .title {
+            background: blue;
+            color: white;
+            width: 198px;
+            height: 70px;
+            font-size: 200%;
+            font-weight: bold;
+            line-height: 70px;
+            text-align: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="base">
+        <div class="title">Content Title01</div>
+        <div class="text">비상계엄이 어쩌고 저쩌고 이랬다 저랬다</div>
+    </div>
+    <div class="base">
+        <div class="view">
+            <div class="circle">
+                <img src="images/Koala.jpg">
+            </div>
+            <div class="temp"></div>
+            <div class="circle">
+                <img src="images/Penguins.jpg">
+            </div>
+            <div class="temp"></div>
+            <div class="circle">
+                <img src="images/Tulips.jpg">
+            </div>
+            <div class="temp"></div>
+            <div class="circle">
+                <img src="images/Jellyfish.jpg">
+            </div>
+        </div>
+    </div>
+    <div class="base">
+        <div class="view">
+            <div class="rect">
+                <div class="title">Segment</div>
+                <div class="text">비상계엄 군사재판 어쩔저쩔</div>
+            </div>
+            <div class="rect">
+                <div class="title">Segment</div>
+                <div class="text">비상계엄 군사재판 어쩔저쩔</div>
+            </div>
+            <div class="rect">
+                <div class="title">Segment</div>
+                <div class="text">비상계엄 군사재판 어쩔저쩔</div>
+            </div>
+            <div class="rect">
+                <div class="title">Segment</div>
+                <div class="text">비상계엄 군사재판 어쩔저쩔</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

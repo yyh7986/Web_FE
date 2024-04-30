@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout03.html</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .base_box {
+            border: 1px solid black;
+        }
+
+        .base1 {
+            height: 100px;
+        }
+
+        .base2 {
+            height: 100px;
+        }
+
+        .base3 {
+            height: 500px;
+        }
+
+        .title_text {
+            font-weight: bold;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .inner_box1 {
+            position: relative;
+            width: 20%;
+            height: 100%;
+            border: 1px solid red;
+            margin: 0 auto;
+            line-height: 140px;
+        }
+
+        .inner_box2 {
+            position: relative;
+            margin: 0 auto;
+            width: 40%;
+            height: inherit;
+            border: 1px dotted blue;
+        }
+
+        .inner_box3--main {
+            position: relative;
+            border: 1px solid red;
+            width: 70%;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .inner__box3--redbox {
+            position: absolute;
+            background: red;
+            width: 70%;
+            height: 70%;
+        }
+
+        .inner__box3--penguin {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            background: url(images/Penguins.jpg);
+            background-size: cover;
+            right: 0;
+            bottom: 0;
+        }
+
+        .inner__box3--text {
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            border: 1px solid black;
+            left: 10%;
+            top: 40%;
+            background: white;
+        }
+
+        .inner__box3--text_title {
+            position: absolute;
+            border: 1px dotted blue;
+            width: 90%;
+            height: 40%;
+            left: 5%;
+            line-height: 100px;
+        }
+
+        .inner__box3--text_content {
+            position: absolute;
+            border: 1px dotted blue;
+            width: 90%;
+            height: 60%;
+            top: 40%;
+            left: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="base1 base_box">
+        <div class="inner_box1 title_text">
+            Content Title
+        </div>
+    </div>
+    <div class="base2 base_box">
+        <div class="inner_box2 content_text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi unde voluptate quam doloribus recusandae,
+            reprehenderit repellat sunt ex
+        </div>
+    </div>
+    <div class="base3 base_box">
+        <div class="inner_box3--main">
+            <div class="inner__box3--redbox"></div>
+            <div class="inner__box3--penguin"></div>
+            <div class="inner__box3--text">
+                <div class="inner__box3--text_title title_text">
+                    Segment Title
+                </div>
+                <div class="inner__box3--text_content content_text">
+                    비상계엄이 어쩌고 저쩌고
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

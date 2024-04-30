@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 2000px;
+            margin: 0;
+        }
+
+        .box {
+            width: 100%;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 2em;
+            border-bottom: 1px solid red;
+            height: 50%;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .text_section {
+            margin: 0 auto;
+            border: 1px solid red;
+            width: 20%;
+            height: 100%;
+        }
+
+        .main_contents {
+            box-sizing: content-box;
+            border: 1px solid red;
+            width: 1100px;
+            height: 200%;
+            margin: 0 auto;
+        }
+
+        .koala {
+            background: url(images/Koala.jpg);
+        }
+
+        .penguin {
+            background: url(images/Penguins.jpg);
+        }
+
+        .tulip {
+            background: url(images/Tulips.jpg);
+        }
+
+        .jellyfish {
+            background: url(images/Jellyfish.jpg);
+        }
+
+        .para {
+            width: 200px;
+            height: 200px;
+        }
+
+        .img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .img:hover {
+            transform: rotate(45turn);
+            transition: ease 15s;
+        }
+
+        .para_title {
+            height: 70px;
+            background: blue;
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            line-height: 70px;
+        }
+
+        .para_text {
+            height: 130px;
+            border: 1px solid blue;
+        }
+
+        .sect {
+            display: inline-block;
+        }
+
+        .last_sect {
+            display: inline-block;
+        }
+
+        .space {
+            display: inline-block;
+            width: 88px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="text_section">
+            <div class="title">Content Title01</div>
+            <div class="content1">비상계엄이 어쩌고저쩌고</div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="main_contents">
+            <div class="sect sec1">
+                <div class="img koala"></div>
+                <div class="para">
+                    <div class="para_title">Segment</div>
+                    <div class="para_text">집에가고싶다 집에가서 뭐하지 저녁밥 뭐먹지 내일 점심 뭐먹지</div>
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="sect sec2">
+                <div class="img penguin"></div>
+                <div class="para">
+                    <div class="para_title">Segment</div>
+                    <div class="para_text">집에가고싶다 집에가서 뭐하지 저녁밥 뭐먹지 내일 점심 뭐먹지</div>
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="sect sec3">
+                <div class="img tulip"></div>
+                <div class="para">
+                    <div class="para_title">Segment</div>
+                    <div class="para_text">집에가고싶다 집에가서 뭐하지 저녁밥 뭐먹지 내일 점심 뭐먹지</div>
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="sect last_sect">
+                <div class="img jellyfish"></div>
+                <div class="para">
+                    <div class="para_title">Segment</div>
+                    <div class="para_text">집에가고싶다 집에가서 뭐하지 저녁밥 뭐먹지 내일 점심 뭐먹지</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box">.</div>
+</body>
+
+</html>

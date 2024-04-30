@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>26_ImageControl10.html</title>
+  <style>
+    img {
+      width: 400px;
+      height: 300px;
+    }
+
+    .view {
+      position: relative;
+      width: 400px;
+      height: 300px;
+      overflow: hidden;
+      border: 1px solid black;
+    }
+
+    .imgs {
+      position: absolute;
+      width: 3200px;
+      height: 300px;
+      left: 0;
+      top: 0;
+      transition: 0.5s;
+    }
+
+    #remote {
+      position: absolute;
+      /* border: 1px dotted white; */
+      bottom: 5px;
+      left: 112px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      float: left;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: white;
+      margin: 4px;
+    }
+
+    li:hover {
+      background: green;
+      cursor: pointer;
+      transform: scale(1.5);
+      transition: 0.1s;
+    }
+  </style>
+  <script>
+    function move(num) {
+      let dist = num * 400 * (-1);
+      document.getElementById("imgs").style.left = dist + "px";
+
+      for (let i = 0; i < 8; i++) {
+        document.querySelectorAll("#remote ul li")[i].style.background = "white";
+        document.querySelectorAll("#remote ul li")[i].style.transform = "scale(1)";
+      }
+      document.querySelectorAll("#remote ul li")[num].style.background = "green";
+      document.querySelectorAll("#remote ul li")[num].style.transform = "scale(1.5)";
+    }
+  </script>
+</head>
+
+<body>
+  <div class="view">
+    <div class="imgs" id="imgs">
+      <img src="images/Koala.jpg"><img src="images/Chrysanthemum.jpg"><img src="images/Hydrangeas.jpg"><img
+        src="images/Jellyfish.jpg"><img src="images/Lighthouse.jpg"><img src="images/Penguins.jpg"><img
+        src="images/Tulips.jpg"><img src="images/Desert.jpg">
+    </div>
+
+    <div id="remote">
+      <ul>
+        <li onclick="move(0)"></li>
+        <li onclick="move(1)"></li>
+        <li onclick="move(2)"></li>
+        <li onclick="move(3)"></li>
+        <li onclick="move(4)"></li>
+        <li onclick="move(5)"></li>
+        <li onclick="move(6)"></li>
+        <li onclick="move(7)"></li>
+      </ul>
+    </div>
+</body>
+
+</html>

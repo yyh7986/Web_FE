@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout06.html</title>
+    <style>
+        .base {
+            background: yellow;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            width: 100%;
+            height: 200px;
+        }
+
+        .main_section {
+            width: 100%;
+            height: 600px;
+        }
+
+        .text_box {
+            border: 1px solid blue;
+            width: 30%;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        .title {
+            line-height: 100px;
+            font-weight: bold;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .view {
+            position: relative;
+            float: left;
+            width: 300px;
+            height: 600px;
+            border: 1px solid red;
+        }
+
+        .img_sect img {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .text_sect {
+            position: relative;
+            top: -20px;
+            margin: 0 auto;
+            width: 80%;
+            height: 250px;
+            border: 1px solid blue;
+            background: white;
+        }
+
+        .text__sect--title {
+            margin: 0 auto;
+            width: 90%;
+            height: 60px;
+            border: 1px solid blue;
+            box-sizing: border-box;
+            line-height: 60px;
+            font-weight: bold;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .text__sect--text {
+            margin: 0 auto;
+            width: 90%;
+            height: 190px;
+            border: 1px solid blue;
+            box-sizing: border-box;
+
+        }
+
+        .button_sect .btn {
+            position: relative;
+
+            width: 150px;
+            height: 30px;
+            line-height: 30px;
+            background: blue;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .button_sect .btn:hover {
+            background: wheat;
+            color: blue;
+            box-shadow: 5px 5px 5px blue;
+        }
+
+        /* .btn {
+            width: 100%;
+            height: 100%;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="base header">
+        <div class="title text_box">Content Title01</div>
+        <div class="text text_box">비상계엄 그만</div>
+    </div>
+    <div class="base main_section">
+        <div class="view">
+            <div class="img_sect">
+                <img src="images/Koala.jpg" alt="koala">
+            </div>
+            <div class="text_sect">
+                <div class="text__sect--title">Segment</div>
+                <div class="text__sect--text">비상계엄하</div>
+            </div>
+            <div class="button_sect">
+                <button class="btn">BUTTON</button>
+            </div>
+        </div>
+        <div class="view">
+            <div class="img_sect">
+                <img src="images/Penguins.jpg">
+            </div>
+            <div class="text_sect">
+                <div class="text__sect--title">Segment</div>
+                <div class="text__sect--text">비상계엄하</div>
+            </div>
+            <div class="button_sect">
+                <button class="btn">BUTTON</button>
+            </div>
+        </div>
+        <div class="view">
+            <div class="img_sect">
+                <img src="images/Tulips.jpg">
+            </div>
+            <div class="text_sect">
+                <div class="text__sect--title">Segment</div>
+                <div class="text__sect--text">비상계엄하</div>
+            </div>
+            <div class="button_sect">
+                <button class="btn">BUTTON</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

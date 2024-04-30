@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23_Visibility.html</title>
+    <style>
+        .box {
+            background-color: yellow;
+            width: 300px;
+            height: 100px;
+            margin: 10px;
+            border: 1px solid black;
+        }
+
+        #box1 {
+            display: none;
+        }
+
+        #box2 {
+            visibility: hidden;
+        }
+
+        #box3 {
+            visibility: collapse;
+        }
+
+        table {
+            visibility: collapse;
+        }
+    </style>
+</head>
+
+<body>
+
+    <span>Dummy</span>
+    <table border="1">
+        <tr>
+            <td>Test1</td>
+            <td>Test2</td>
+        </tr>
+        <tr>
+            <td>Test3</td>
+            <td>Test4</td>
+        </tr>
+    </table>
+    <span>Dummy</span>
+    <br><br>
+    <hr>
+
+    <span>Dummy</span>
+    <div id="box1" class="box"><span>교육의 자주성.전문성.정치적 중립성 및 대학의 자율성은 법률이 정하는 바</span></div>
+    <span>Dummy</span>
+    <br><br>
+
+    <span>Dummy</span>
+    <div id="box2" class="box"><span>교육의 자주성.전문성.정치적 중립성 및 대학의 자율성은 법률이 정하는 바</span></div>
+    <span>Dummy</span>
+    <br><br>
+
+    <span>Dummy</span>
+    <div id="box3" class="box"><span>교육의 자주성.전문성.정치적 중립성 및 대학의 자율성은 법률이 정하는 바</span></div>
+    <span>Dummy</span>
+    <br><br>
+</body>
+
+</html>

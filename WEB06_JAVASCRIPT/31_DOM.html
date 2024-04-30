@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>31_DOM.html</title>
+    <script>
+      function changeHeader() {
+        document.getElementById("header_1").innerHTML = "펭귄";
+      }
+
+      function createTag() {
+        const h2 = document.createElement("h2");
+        h2.innerText = "새로운 태그";
+        document.body.appendChild(h2);
+      }
+
+      function createImg() {
+        let imgTag = document.createElement("img");
+        imgTag.src = "images/Koala.jpg";
+        imgTag.width = 300;
+        document.body.appendChild(imgTag);
+      }
+
+      function createUl() {
+        let output = "</br>";
+        output += "<ul>";
+        output += "<li><h2>JavaScript</h2></li>";
+        output += "<li><h2>jQuery</h2></li>";
+        output += "<li><h2>Ajax</h2></li>";
+        output += "</ul>";
+        output += "<br />";
+        document.body.innerHTML += output;
+      }
+    </script>
+  </head>
+  <body>
+    <h1 id="header_1">HEADER-1</h1>
+    <div>
+      <h1 id="header_2">HEADER-2</h1>
+    </div>
+    <h1 id="clock"></h1>
+    <hr />
+    <h3>
+      기존 태그의 변경<input
+        type="button"
+        value="제목변경"
+        onclick="changeHeader()"
+      />
+    </h3>
+    <h3>
+      없던 태그의 추가(H2)<input
+        type="button"
+        value="문서객체 생성(h2)"
+        onclick="createTag()"
+      />
+    </h3>
+    <h3>
+      없던 태그의 추가(img)<input
+        type="button"
+        value="문서객체 생성(img)"
+        onclick="createImg()"
+      />
+    </h3>
+    <h3>
+      innerHTML을 이용해서 ul태그 추가
+      <input type="button" value="문서객체 생성(ul)" onclick="createUl()" />
+    </h3>
+  </body>
+</html>

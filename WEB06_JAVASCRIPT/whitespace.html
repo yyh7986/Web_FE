@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 400px;
+        height: 300px;
+      }
+
+      .view {
+        position: relative;
+        width: 400px;
+        height: 300px;
+        overflow: hidden;
+        border: 1px solid black;
+      }
+
+      .imgs {
+        position: absolute;
+        width: 3200px;
+        height: 300px;
+        left: 0;
+        top: 0;
+        transition: 0.3s;
+      }
+
+      #remote {
+        position: absolute;
+        /* border: 1px dotted white; */
+        bottom: 30px;
+        left: 80px;
+      }
+
+      #remote ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #remote li {
+        box-sizing: border-box;
+        float: left;
+        width: 18px;
+        height: 18px;
+        border: 1.5px solid green;
+        border-radius: 50%;
+        background: white;
+        margin: 4px;
+        text-align: center;
+        font-size: 0.7rem;
+        font-weight: bold;
+        line-height: 14px;
+      }
+
+      #remote li:hover {
+        background: green;
+        color: white;
+        cursor: pointer;
+        transform: scale(1.5);
+        transition: 0.1s;
+      }
+
+      #remote li::selection {
+        user-select: none;
+      }
+    </style>
+    <script>
+      let num = 0;
+      let max = 7;
+      let state = false;
+      let timer;
+
+      function moveAuto() {
+        if (state == true) {
+          // ▶
+          document.getElementById("auto").innerText = "▷";
+          document.getElementById("auto").style.color = "black";
+
+          window.clearInterval(timer);
+
+          state = false;
+        } else {
+          document.getElementById("auto").innerText = "∥";
+          document.getElementById("auto").style.color = "red";
+
+          timer = window.setInterval(function () {
+            num++;
+            if (num > 7) num = 0;
+            let dist = -400 * num;
+            document.getElementById("imgs").style.left = dist + "px";
+            document.querySelectorAll("#remote ul li")[
+              num + 2
+            ].style.background = "green";
+            for (let i = 0; i < 8; i++) {
+              if (i == num) continue;
+              document.querySelectorAll("#remote ul li")[
+                i + 2
+              ].style.background = "white";
+              document.querySelectorAll("#remote ul li")[i + 2].style.color =
+                "black";
+            }
+          }, 500);
+
+          state = true;
+        }
+      }
+
+      function moveLeft() {
+        if (num == 0) {
+          num = max;
+        }
+        num--;
+        let dist = 400 * num * -1;
+        document.getElementById("imgs").style.left = dist + "px";
+      }
+
+      function moveRight() {
+        if (num == max) {
+          num = 0;
+        } else {
+          num++;
+        }
+        let dist = 400 * num * -1;
+        document.getElementById("imgs").style.left = dist + "px";
+      }
+
+      function move(num) {
+        let dist = (num - 1) * 400 * -1;
+        document.getElementById("imgs").style.left = dist + "px";
+
+        for (let i = 0; i < 8; i++) {
+          document.querySelectorAll("#remote ul li")[i + 2].style.background =
+            "white";
+          document.querySelectorAll("#remote ul li")[i + 2].style.color =
+            "black";
+        }
+        document.querySelectorAll("#remote ul li")[num + 1].style.background =
+          "green";
+        document.querySelectorAll("#remote ul li")[num + 1].style.color =
+          "white";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="view">
+      <div class="imgs" id="imgs">
+        <img src="images/Koala.jpg" /><img src="images/Chrysanthemum.jpg" /><img
+          src="images/Hydrangeas.jpg"
+        /><img src="images/Jellyfish.jpg" /><img
+          src="images/Lighthouse.jpg"
+        /><img src="images/Penguins.jpg" /><img src="images/Tulips.jpg" /><img
+          src="images/Desert.jpg"
+        />
+      </div>
+    </div>
+
+    <div id="remote">
+      <ul>
+        <li id="auto" onclick="moveAuto()">▷</li>
+        <li onclick="moveLeft()">◀</li>
+        <li id="img1" onclick="move(1)">1</li>
+        <li id="img2" onclick="move(2)">2</li>
+        <li id="img3" onclick="move(3)">3</li>
+        <li id="img4" onclick="move(4)">4</li>
+        <li id="img5" onclick="move(5)">5</li>
+        <li id="img6" onclick="move(6)">6</li>
+        <li id="img7" onclick="move(7)">7</li>
+        <li id="img8" onclick="move(8)">8</li>
+        <li onclick="moveRight()">▶</li>
+      </ul>
+    </div>
+  </body>
+</html>
