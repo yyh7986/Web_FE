@@ -5,116 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>12_JQueryEx.html</title>
     <style>
-      #tabs {
-        width: 600px;
-        height: 30px;
+      body {
+        margin: 30px;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #tabs {
+        width: 900px;
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
       }
 
       #tabs div {
-        width: 100px;
-        height: 100%;
+        width: 145px;
+        height: 120%;
+        border-radius: 15px 15px 0 0;
+        text-align: center;
+        line-height: 40px;
+        transition: 0.2s;
+      }
+
+      #tabs div:hover {
+        transform: translateY(-2px);
+      }
+
+      #tabs div:active {
+        transform: translateY(5px);
       }
 
       #content {
         position: relative;
-        width: 600px;
-        height: 600px;
+        width: 900px;
+        height: 450px;
       }
 
       .contents {
         position: absolute;
         width: 100%;
         height: 100%;
-        line-height: 600px;
+        line-height: 450px;
         text-align: center;
       }
     </style>
     <script src="script/jquery-3.7.1.min.js"></script>
     <script>
-      let currentContent = 1;
+      function changeContent(index) {
+        for (let i = 1; i <= 6; i++) {
+          $("#content" + i).hide(0, function () {});
+        }
+        $("#content" + index).show(0, function () {});
+      }
+
+      function clickMenu(index) {
+        $(`#tabs div:eq(${index - 1})`).click(function () {
+          changeContent(index);
+        });
+      }
+
+      const colorPalette = [
+        "#fb6107",
+        "#f3de2c",
+        "#7cb518",
+        "#fbb02d",
+        "#662e9b",
+        "#43bccd",
+      ];
+
       $(function () {
-        $("#tabs div:eq(0)").css("background", "#0a9396");
-        $("#tabs div:eq(1)").css("background", "#e9d8a6");
-        $("#tabs div:eq(2)").css("background", "#ee9b00");
-        $("#tabs div:eq(3)").css("background", "#ca6702");
-        $("#tabs div:eq(4)").css("background", "#bb3e03");
-        $("#tabs div:eq(5)").css("background", "#9b2226");
-        $("#content1").show(function () {
-          $(this).css({
-            background: "#0a9396",
-            "box-shadow": "3px 3px 3px gray",
-          });
-        });
-        $("#content2").hide(function () {
-          $(this).css("background", "#e9d8a6");
-        });
-        $("#content3").hide(function () {
-          $(this).css("background", "#ee9b00");
-        });
-        $("#content4").hide(function () {
-          $(this).css("background", "#ca6702");
-        });
-        $("#content5").hide(function () {
-          $(this).css("background", "#bb3e03");
-        });
-        $("#content6").hide(function () {
-          $(this).css("background", "#9b2226");
+        for (let i = 0; i < colorPalette.length; i++) {
+          $(`#tabs div:eq(${i}), #content${i + 1}`).css(
+            "background-color",
+            colorPalette[i]
+          );
+          clickMenu(i + 1);
+        }
+        /* 
+        $("#tabs div").each((index) => {
+          $(`#tabs div:eq(${index}), #content${index + 1}`).css(
+            "background",
+            colorPalette[index]
+          );
         });
 
-        // function hideOther(e) {
-        //   for (let i = 1; i <= 6; i++) {
-        //     if (i - 1 == e.target.index()) continue;
-        //     $(`#content${i}`).hide();
-        //   }
-        // }
-
-        $("#tabs div:eq(0)").click(function () {
-          $("#content1").show(function () {
-            $(this).css("box-shadow", "3px 3px 3px gray");
-          });
-          $(`#content${currentContent}`).hide();
-          currentContent = 1;
-        });
-        $("#tabs div:eq(1)").click(function () {
-          $("#content2").show(function () {
-            $(this).css("box-shadow", "3px 3px 3px gray");
-          });
-          $(`#content${currentContent}`).hide();
-          currentContent = 2;
-        });
-        $("#tabs div:eq(2)").click(function () {
-          $("#content3").show(function () {
-            $(this).css("box-shadow", "3px 3px 3px gray");
-          });
-          $(`#content${currentContent}`).hide();
-          currentContent = 3;
-        });
-        $("#tabs div:eq(3)").click(function () {
-          $("#content4").show(function () {
-            $(this).css("box-shadow", "3px 3px 3px gray");
-          });
-          $(`#content${currentContent}`).hide();
-          currentContent = 4;
-        });
-        $("#tabs div:eq(4)").click(function () {
-          $("#content5").show(function () {
-            $(this).css("box-shadow", "3px 3px 3px gray");
-          });
-          $(`#content${currentContent}`).hide();
-          currentContent = 5;
-        });
-        $("#tabs div:eq(5)").click(function () {
-          $("#content6").show(function () {
-            $(this).css("box-shadow", "3px 3px 3px gray");
-          });
-          $(`#content${currentContent}`).hide();
-          currentContent = 6;
-        });
+        $("#content div").each((index) => {
+          clickMenu(index + 1);
+        }); 
+        */
       });
     </script>
   </head>
-  <body>
+  <body onload="changeContent(1)">
     <div id="tabs">
       <div>Menu A</div>
       <div>Menu B</div>
