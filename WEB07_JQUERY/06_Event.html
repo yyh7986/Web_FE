@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06_Event.html</title>
+    <script src="script/jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        // 1. 이벤트 연결 #1
+        // 기존 자바스크립트의 이벤트 연결 :
+        //  - 태그안에 onClick 같은 속성을 넣고, 자바스크립트 함수를 연결
+        // JQuery 의 이벤트 연결
+        //  - 선택자로 태그를 선택하고, 그 문서객체에 이벤트 함수를 연결하여 실행합니다.
+        // 사용할 이벤트 함수 : on
+        // 사용 형태
+        // 1) $(selector).on(이벤트이름, 익명함수);
+        // 해당 문서객체(selector)에 해당이벤트가 발생하면 익명함수가 실행되는 형식입니다
+
+        // 실제 사용 예
+        function createRandNum() {
+          return Math.floor(Math.random() * 1000000);
+        }
+        //   // h1태그를 클릭하면 익명함수의 내용이 실행된다.
+        //   $("h1:eq(0)").on("click", function () {
+        //     $("h1:eq(0)").css({
+        //       background: `#${createRandNum()}`,
+        //       color: "white",
+        //     });
+        //   });
+        //   $("h1:eq(1)").on("click", function () {
+        //     $("h1:eq(1)").css({
+        //       background: `#${createRandNum()}`,
+        //       color: "white",
+        //     });
+        //   });
+        //   $("h1:eq(2)").on("click", function () {
+        //     $("h1:eq(2)").css({
+        //       background: `#${createRandNum()}`,
+        //       color: "white",
+        //     });
+        //   });
+
+        // $("h1").on("click", function () {
+        //   // 현재 클릭된 h1 -> this
+        //   // 클릭된 h1의 index를 변수에 저장
+        //   let idx = $(this).index();
+
+        //   if (idx == 0) {
+        //     $("h1").eq(idx).css({ background: "red", color: "white" });
+        //   } else if (idx == 1) {
+        //     $(`h1:eq(${idx})`).css({ background: "blue", color: "white" });
+        //   } else {
+        //     $("h1:eq(2)").css({ background: "#FF00FF", color: "white" });
+        //   }
+        // });
+
+        // 두가지 이벤트를 연결
+        // $("h1").on("mouseover", function(){});
+        // $("h1").on("mouseout", function(){});
+        // $("h1").on("mouseover", function () {
+        //   let idx = $(this).index();
+        //   if (idx == 0) {
+        //     $("h1").eq(idx).css({ background: "red", color: "white" });
+        //   } else if (idx == 1) {
+        //     $(`h1:eq(${idx})`).css({ background: "blue", color: "white" });
+        //   } else {
+        //     $("h1:eq(2)").css({ background: "#FF00FF", color: "white" });
+        //   }
+        // });
+
+        // $("h1").on("mouseout", function () {
+        //   $(this).css({ background: "white", color: "black" });
+        // });
+
+        // -->
+        // $("h1").on({"mouseover":function(){}, "mouseout":function(){}});
+        // function mouseOver(event) {
+        //   let idx = $(event.target).index();
+        //   if (idx == 0) {
+        //     $("h1").eq(idx).css({ background: "red", color: "white" });
+        //   } else if (idx == 1) {
+        //     $(`h1:eq(${idx})`).css({ background: "blue", color: "white" });
+        //   } else {
+        //     $("h1:eq(2)").css({ background: "#FF00FF", color: "white" });
+        //   }
+        // }
+
+        // function mouseOut(event) {
+        //   $(event.target).css({ background: "white", color: "black" });
+        // }
+        // $("h1").on({
+        //   mouseover: mouseOver,
+        //   mouseout: mouseOut,
+        // });
+
+        $("h1").hover(
+          function () {
+            $(this).css({
+              background: `#${createRandNum()}`,
+              color: "white",
+            });
+          },
+          function () {
+            $(this).css({ background: "white", color: "black" });
+          }
+        );
+
+        $("textarea").keyup(function () {
+          let inputlength = $(this).val().length;
+          let remain = 150 - inputlength;
+          $("h2").html(remain);
+          if (remain >= 0) {
+            $("h2").css("color", "black");
+          } else {
+            $("h2").css("color", "red");
+            $("textarea").css("color", "red");
+          }
+        });
+
+        $("h1").on("click", function () {
+          $(this).off(); // 이벤트 제거
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <p>MMS</p>
+      <textarea cols="70" rows="5"></textarea>
+      <h2>150</h2>
+    </div>
+    <!-- 1/2/3. 이벤트 연결/제거 -->
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+  </body>
+</html>

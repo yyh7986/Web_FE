@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12_JQueryEx.html</title>
+    <style>
+      #tabs {
+        width: 600px;
+        height: 30px;
+        display: flex;
+      }
+
+      #tabs div {
+        width: 100px;
+        height: 100%;
+      }
+
+      #content {
+        position: relative;
+        width: 600px;
+        height: 600px;
+      }
+
+      .contents {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        line-height: 600px;
+        text-align: center;
+      }
+    </style>
+    <script src="script/jquery-3.7.1.min.js"></script>
+    <script>
+      let currentContent = 1;
+      $(function () {
+        $("#tabs div:eq(0)").css("background", "#0a9396");
+        $("#tabs div:eq(1)").css("background", "#e9d8a6");
+        $("#tabs div:eq(2)").css("background", "#ee9b00");
+        $("#tabs div:eq(3)").css("background", "#ca6702");
+        $("#tabs div:eq(4)").css("background", "#bb3e03");
+        $("#tabs div:eq(5)").css("background", "#9b2226");
+        $("#content1").show(function () {
+          $(this).css({
+            background: "#0a9396",
+            "box-shadow": "3px 3px 3px gray",
+          });
+        });
+        $("#content2").hide(function () {
+          $(this).css("background", "#e9d8a6");
+        });
+        $("#content3").hide(function () {
+          $(this).css("background", "#ee9b00");
+        });
+        $("#content4").hide(function () {
+          $(this).css("background", "#ca6702");
+        });
+        $("#content5").hide(function () {
+          $(this).css("background", "#bb3e03");
+        });
+        $("#content6").hide(function () {
+          $(this).css("background", "#9b2226");
+        });
+
+        // function hideOther(e) {
+        //   for (let i = 1; i <= 6; i++) {
+        //     if (i - 1 == e.target.index()) continue;
+        //     $(`#content${i}`).hide();
+        //   }
+        // }
+
+        $("#tabs div:eq(0)").click(function () {
+          $("#content1").show(function () {
+            $(this).css("box-shadow", "3px 3px 3px gray");
+          });
+          $(`#content${currentContent}`).hide();
+          currentContent = 1;
+        });
+        $("#tabs div:eq(1)").click(function () {
+          $("#content2").show(function () {
+            $(this).css("box-shadow", "3px 3px 3px gray");
+          });
+          $(`#content${currentContent}`).hide();
+          currentContent = 2;
+        });
+        $("#tabs div:eq(2)").click(function () {
+          $("#content3").show(function () {
+            $(this).css("box-shadow", "3px 3px 3px gray");
+          });
+          $(`#content${currentContent}`).hide();
+          currentContent = 3;
+        });
+        $("#tabs div:eq(3)").click(function () {
+          $("#content4").show(function () {
+            $(this).css("box-shadow", "3px 3px 3px gray");
+          });
+          $(`#content${currentContent}`).hide();
+          currentContent = 4;
+        });
+        $("#tabs div:eq(4)").click(function () {
+          $("#content5").show(function () {
+            $(this).css("box-shadow", "3px 3px 3px gray");
+          });
+          $(`#content${currentContent}`).hide();
+          currentContent = 5;
+        });
+        $("#tabs div:eq(5)").click(function () {
+          $("#content6").show(function () {
+            $(this).css("box-shadow", "3px 3px 3px gray");
+          });
+          $(`#content${currentContent}`).hide();
+          currentContent = 6;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="tabs">
+      <div>Menu A</div>
+      <div>Menu B</div>
+      <div>Menu C</div>
+      <div>Menu D</div>
+      <div>Menu E</div>
+      <div>Menu F</div>
+    </div>
+    <div id="content">
+      <div class="contents" id="content1">Content A</div>
+      <div class="contents" id="content2">Content B</div>
+      <div class="contents" id="content3">Content C</div>
+      <div class="contents" id="content4">Content D</div>
+      <div class="contents" id="content5">Content E</div>
+      <div class="contents" id="content6">Content F</div>
+    </div>
+  </body>
+</html>
