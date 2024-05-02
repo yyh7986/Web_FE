@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB06_28_Practice03</title>
+
+    <!-- JQuery로 opacity, transition 사용하여 fade 구현한 case -->
+    <style>
+      .view {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        /* overflow: hidden; */
+      }
+
+      .imgs {
+        position: relative;
+        width: 600px;
+        height: 400px;
+      }
+
+      img {
+        position: absolute;
+        width: 600px;
+        height: 400px;
+        transition: 1s;
+      }
+
+      .remote {
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        bottom: 0;
+        text-align: center;
+        line-height: 20px;
+      }
+
+      .remote div {
+        width: 20px;
+        height: 20px;
+        background: white;
+        margin: 5px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: green;
+        border: 1px solid green;
+      }
+
+      .remote div:hover {
+        background: green;
+        color: white;
+        border: 1px solid white;
+        transform: scale(1.5);
+        transition: 0.1s;
+      }
+
+      .remote div.selected {
+        background: green;
+        color: white;
+        border: 1px solid white;
+      }
+    </style>
+    <script src="script/jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        let imgNum = 1;
+        let timer;
+        let state = false;
+
+        function selectedImgBtnStyle() {
+          $(".img").css({ background: "white", color: "green" });
+          $(".img")
+            .eq(imgNum - 1)
+            .css({ background: "green", color: "white" });
+        }
+        function move() {
+          $("img").css("opacity", 0);
+          $("img")
+            .eq(imgNum - 1)
+            .css("opacity", 1);
+          selectedImgBtnStyle();
+        }
+        $(".img").click(function () {
+          imgNum = $(this).index();
+          move();
+        });
+
+        $(".move-left").click(function () {
+          imgNum--;
+          if (imgNum < 1) imgNum = 8;
+          move();
+        });
+
+        $(".move-right").click(function () {
+          imgNum++;
+          if (imgNum > 8) imgNum = 1;
+          move();
+        });
+
+        $(".move-auto").on("click", function () {
+          if (!state) {
+            state = true;
+            $(this).text("■");
+            timer = setInterval(function () {
+              imgNum++;
+              if (imgNum > 8) imgNum = 1;
+              move();
+            }, 500);
+          } else {
+            state = false;
+            $(this).text("▶");
+            clearInterval(timer);
+          }
+        });
+        $(".img").eq(0).trigger("click");
+      });
+    </script>
+  </head>
+  <body>
+    <section class="view">
+      <div class="imgs">
+        <img src="images/Pubao.jpg" /><img src="images/Tulips.jpg" /><img
+          src="images/Penguins.jpg"
+        /><img src="images/Desert.jpg" /><img src="images/Koala.jpg" /><img
+          src="images/Lighthouse.jpg"
+        /><img src="images/Hydrangeas.jpg" /><img
+          src="images/Chrysanthemum.jpg"
+        />
+      </div>
+      <div class="remote">
+        <div class="move-left">◁</div>
+        <div class="img">1</div>
+        <div class="img">2</div>
+        <div class="img">3</div>
+        <div class="img">4</div>
+        <div class="img">5</div>
+        <div class="img">6</div>
+        <div class="img">7</div>
+        <div class="img">8</div>
+        <div class="move-right">▷</div>
+        <div class="move-auto">▶</div>
+      </div>
+    </section>
+  </body>
+</html>

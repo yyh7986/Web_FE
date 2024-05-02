@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB06_30_Practice01</title>
+    <style>
+      table {
+        width: 700px;
+        background-color: black;
+      }
+
+      tr {
+        height: 70px;
+        background-color: white;
+      }
+
+      th {
+        width: 150px;
+      }
+
+      td {
+        width: 350px;
+      }
+
+      img {
+        width: 15px;
+        height: 15px;
+      }
+    </style>
+    <script>
+      function selectRadio(index) {
+        document.querySelectorAll(".gender")[0].src = "images/radio1.png";
+        document.querySelectorAll(".gender")[1].src = "images/radio1.png";
+        document.querySelector("#r" + index).src = "images/radio2.png";
+        if (index == 1) {
+          document.querySelector("#val").value = "남성";
+        } else {
+          document.querySelector("#val").value = "여성";
+        }
+      }
+
+      let chIndex = [false, false, false];
+      function selectCheck(num) {
+        if (chIndex[num - 1] == true) {
+          document.getElementById("c" + num).src = "images/check2.png";
+          chIndex[num - 1] = false;
+        } else {
+          document.getElementById("c" + num).src = "images/check1.png";
+          chIndex[num - 1] = true;
+        }
+
+        let product = ["스포츠", "영화", "독서"];
+        let str = "";
+        for (let i = 0; i < 3; i++) {
+          if (chIndex[i] == true) {
+            str += product[i] + " ";
+          }
+          document.getElementById("val2").value = str;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>성별</th>
+        <td>
+          남성&nbsp;<img
+            src="images/radio1.png"
+            id="r1"
+            class="gender"
+            onclick="selectRadio(1)"
+          />&nbsp;&nbsp;&nbsp; 여성&nbsp;<img
+            src="images/radio2.png"
+            id="r2"
+            class="gender"
+            onclick="selectRadio(2)"
+          />&nbsp;&nbsp;&nbsp;
+          <input type="text" id="val" value="여성" />
+        </td>
+      </tr>
+      <tr>
+        <th>취미</th>
+        <td>
+          스포츠&nbsp;<img
+            src="images/check2.png"
+            id="c1"
+            class="hobby"
+            onclick="selectCheck(1)"
+          />
+          영화&nbsp;<img
+            src="images/check2.png"
+            id="c2"
+            class="hobby"
+            onclick="selectCheck(2)"
+          />
+          독서&nbsp;<img
+            src="images/check2.png"
+            id="c3"
+            class="hobby"
+            onclick="selectCheck(3)"
+          />
+          <input type="text" id="val2" />
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

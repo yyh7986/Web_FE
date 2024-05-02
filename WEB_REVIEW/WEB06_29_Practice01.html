@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB06_29_Practice01</title>
+    <style>
+      .title {
+        position: relative;
+        width: 200px;
+        height: 30px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border: 1px solid gray;
+      }
+
+      .num {
+        position: absolute;
+        width: 120px;
+        height: 100%;
+      }
+
+      .arrow {
+        position: absolute;
+        right: 0;
+        width: 25px;
+        height: 100%;
+        overflow: hidden;
+        border-left: 1px solid gray;
+      }
+
+      .arrow img {
+        position: absolute;
+        right: 1px;
+        top: -320px;
+      }
+
+      .drop-menu {
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        top: 30px;
+        overflow: scroll;
+        border-left: 1px solid gray;
+        box-shadow: 3px 3px 3px gray;
+      }
+
+      .drop-menu div {
+        width: 100%;
+        height: 30px;
+      }
+
+      .drop-menu div:hover {
+        background-color: gray;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+    <script>
+      function clickTitle() {
+        document.querySelector(".drop-menu").classList.toggle("hidden");
+      }
+
+      function selectNum(num) {
+        document.querySelector(".num").innerText = num;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="title" onclick="clickTitle()">
+      <div class="num">+82</div>
+      <div class="arrow">
+        <img src="images/ico_movie_171115.png" />
+      </div>
+      <div class="drop-menu hidden">
+        <div onclick="selectNum('+1')">+1 &nbsp;&nbsp;&nbsp; Canada</div>
+        <div onclick="selectNum('+63')">+63 &nbsp;&nbsp;&nbsp; Philippines</div>
+        <div onclick="selectNum('+62')">+62 &nbsp;&nbsp;&nbsp; indonesia</div>
+        <div onclick="selectNum('+84')">+84 &nbsp;&nbsp;&nbsp; Vietnam</div>
+        <div onclick="selectNum('+55')">+55 &nbsp;&nbsp;&nbsp; Brazil</div>
+        <div onclick="selectNum('+85')">+85 &nbsp;&nbsp;&nbsp; HongKong</div>
+        <div onclick="selectNum('+82')">+82 &nbsp;&nbsp;&nbsp; Korea</div>
+      </div>
+    </div>
+  </body>
+</html>
