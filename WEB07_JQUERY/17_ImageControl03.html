@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17_ImageControl03.html</title>
+    <style>
+      #view {
+        position: relative;
+        width: 170px;
+        height: 255px;
+        border: 3px solid blue;
+        left: 50px;
+        overflow: hidden;
+      }
+      #imgs {
+        position: absolute;
+        width: 1700px;
+        height: 255px;
+        left: 0;
+        top: 0;
+        border: 1px dashed red;
+      }
+    </style>
+    <script src="script/jquery-3.7.1.min.js"></script>
+    <script>
+      let imgNum = 0;
+      let timer;
+
+      $(function () {
+        $("#view").hover(
+          function () {
+            window.clearInterval(timer);
+          },
+          function () {
+            timer = window.setInterval(function () {
+              imgNum++;
+              if (imgNum > 9) imgNum = 0;
+              $("#imgs").animate({ left: imgNum * -170 }, 500);
+            }, 1000);
+          }
+        );
+        $("#view").trigger("mouseleave");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="view">
+      <div id="imgs">
+        <img src="images/1.jpg" alt="" /><img src="images/2.jpg" alt="" /><img
+          src="images/3.jpg"
+          alt=""
+        /><img src="images/4.jpg" alt="" /><img src="images/5.jpg" alt="" /><img
+          src="images/6.jpg"
+          alt=""
+        /><img src="images/7.jpg" alt="" /><img src="images/8.jpg" alt="" /><img
+          src="images/9.jpg"
+          alt=""
+        /><img src="images/10.jpg" alt="" />
+      </div>
+    </div>
+  </body>
+</html>

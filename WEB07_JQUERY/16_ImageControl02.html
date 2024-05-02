@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>16_ImageControl02.html</title>
+    <script src="script/jquery-3.7.1.min.js"></script>
+    <script>
+      const imgCount = 10;
+      let currentImg1 = 1;
+      let currentImg2 = 1;
+      let currentImg3 = 1;
+      let timer;
+
+      function startInterval() {
+        return window.setInterval(function () {
+          currentImg3++;
+          if (currentImg3 > 10) currentImg3 = 1;
+          $("img:eq(2)").attr("src", `images/${currentImg3}.jpg`);
+        }, 500);
+      }
+
+      $(function () {
+        $("img:eq(0)").click(function () {
+          if (currentImg1 > 10) currentImg1 = 1;
+          $(this).attr("src", `images/${currentImg1}.jpg`);
+          ++currentImg1;
+        });
+
+        window.setInterval(function () {
+          currentImg2++;
+          if (currentImg2 > 10) currentImg2 = 1;
+          $("img:eq(1)").attr("src", `images/${currentImg2}.jpg`);
+        }, 500);
+
+        $("img:eq(2)").hover(
+          function () {
+            window.clearInterval(timer);
+          },
+          function () {
+            timer = startInterval();
+          }
+        );
+
+        // 이벤트 강제 발생 명령
+        $("img:eq(2)").trigger("mouseleave");
+      });
+    </script>
+  </head>
+  <body>
+    <img src="images/1.jpg" />
+    <img src="images/1.jpg" />
+    <img src="images/1.jpg" />
+  </body>
+</html>

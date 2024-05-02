@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13_JQueryEx.html</title>
+    <style>
+      body {
+        background: royalblue;
+      }
+
+      a {
+        text-decoration: none;
+        display: block;
+        font-size: 40px;
+        margin: 5px 0;
+        color: #fff;
+        transition: 0.5s;
+      }
+
+      .gnb {
+        position: absolute;
+        top: 100px;
+        left: 50px;
+      }
+    </style>
+    <script src="script/jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        $("a").hover(
+          function () {
+            $("a").css("opacity", "0.3");
+            $("a").css("color", "royalblue");
+            $(this).css("color", "white");
+            $(this).css("opacity", "1");
+          },
+          function () {
+            $("a").css("opacity", "1");
+            $("a").css("color", "white");
+          }
+        );
+        // $(".gnb").mouseout(function () {
+        //   $("a").css("opacity", "1");
+        // });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="gnb">
+      <a href="#none">New Arrivals</a>
+      <a href="#none">Summer Collection</a>
+      <a href="#none">Winter Collection</a>
+      <a href="#none">Special Offers</a>
+      <a href="#none">Trends</a>
+    </div>
+  </body>
+</html>
